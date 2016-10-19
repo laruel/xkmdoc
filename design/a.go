@@ -25,7 +25,7 @@ var _ = Resource("xkm", func() {                // Resources group related API e
 		})
 		Response(OK)                       // Responses define the shape and status code
 	})
-	Action("update", func() {                    // Actions define a single API endpoint together
+	Action("sub", func() {                    // Actions define a single API endpoint together
 		Description("更新子任务属性")    // with its path, parameters (both path
 		Routing(PUT("/task/subtask/add/v1"))         // parameters and querystring values) and payload
 		Params(func() {                    // (shape of the request body).
