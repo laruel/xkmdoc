@@ -66,6 +66,14 @@ var _ = Resource("xkm", func() {                // Resources group related API e
 		})
 		Response(OK)
 	})
+	Action("获取最近联系人", func() {
+		Description("根据id获取最近联系人信息")
+		Routing(GET("/task/member/v1/{id}"))
+		Params(func() {                    // (shape of the request body).
+			Param("id", String, "登陆者ID")
+		})
+		Response(OK)
+	})
 
 	Action("加入科室", func() {
 		Description("加入科室")
