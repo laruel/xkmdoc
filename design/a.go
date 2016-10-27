@@ -79,7 +79,7 @@ var _ = Resource("xkm", func() {                // Resources group related API e
 
 	Action("根据权限类型获取权限", func() {
 		Description("使用权限值进行区分不同的权限")
-		Routing(POST("/access/pc/type/v2/{departId}"))
+		Routing(GET("/access/pc/type/v2/{departId}"))
 		Params(func() {                    // (shape of the request body).
 			Param("departId", String, "科室ID")
 		})
