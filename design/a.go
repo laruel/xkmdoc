@@ -66,14 +66,6 @@ var _ = Resource("xkm", func() {                // Resources group related API e
 		})
 		Response(OK)
 	})
-	Action("获取最近联系人", func() {
-		Description("根据id获取最近联系人信息")
-		Routing(GET("/task/member/v1/{id}"))
-		Params(func() {                    // (shape of the request body).
-			Param("id", String, "登陆者ID")
-		})
-		Response(OK)
-	})
 
 	Action("加入科室", func() {
 		Description("加入科室")
@@ -85,4 +77,35 @@ var _ = Resource("xkm", func() {                // Resources group related API e
 		Response(OK)
 	})
 
-})
+	Action("根据权限类型获取权限", func() {
+		Description("使用权限值进行区分不同的权限")
+		Routing(POST("/access/pc/type/v2/{departId}"))
+		Params(func() {                    // (shape of the request body).
+			Param("departId", String, "科室ID")
+		})
+		Response(OK)
+	})
+	Action("注册医生", func() {
+		Description("微信添加医生时使用  如果responseMsg=1 正常添加  =2 已经是团队成员")
+		Routing(POST("/doctor/reg/v1"))
+		Params(func() {                    // (shape of the request body).
+			Param("departId", String, "科室ID")
+			Param("doctorId", String, "发送邀请人的ID")
+			Param("name", String, "姓名")
+			Param("phone", String, "手机号")
+		})
+		Response(OK)
+	})
+
+
+	Action("注册患者", func() {
+		Description("微信添加患者时使用")
+		Routing(POST("/patient/reg/v1"))
+		Params(func() {                    // (shape of the request body).
+			Param("departId", String, "科室ID")
+			Param("doctorId", String, "发送邀请人的ID")
+			Param("name", String, "姓名")
+			Param("phone", String, "手机号")
+		})
+		Response(OK)
+	})})
