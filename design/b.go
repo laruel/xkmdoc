@@ -56,7 +56,7 @@ var _ = Resource("xkm", func() {
 		Description("更新日程的一个属性,提交结构同于任务的方式，结构与日程结构一致，增加2个属性\n" +
 			"当paramType 为1  增加同事或患者   为2  减少同事或患者   其他值 更新param指定的属性")
 		Routing(PUT("/schedule/param/v1"))
-		Param(func() {
+		Params(func() {
 			Param("param",String,"更改参数的属性值")
 			Param("paramType",String,"更改类型  具体说明见描述")
 		})
