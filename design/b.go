@@ -42,7 +42,7 @@ var _ = Resource("xkm", func() {
 	Action("创建通知",func(){
 		Description("创建公告，老接口，使用通用的创建通知接口\n参数描述中，只描述增加的参数，公告分类：category")
 		Routing(POST("/notice/v1"))
-		Param(func() {
+		Params(func() {
 			Param("category",String,"公告的类别")
 		})
 	})
