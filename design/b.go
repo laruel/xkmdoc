@@ -7,7 +7,7 @@ import (
 
 var _ = API("V1.6.2", func() {                     // API defines the microservice endpoint and
 	Title("服务端接口")           // other global properties. There should be one
-	Description("V1.6.1服务端接口调整")        // and exactly one API definition appearing in
+	Description("V1.6.2服务端接口调整")        // and exactly one API definition appearing in
 	Scheme("https")                             // the design.
 	Host("120.76.168.214:8443")
 })
