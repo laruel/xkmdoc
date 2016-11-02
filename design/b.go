@@ -45,11 +45,13 @@ var _ = Resource("xkm", func() {
 		Params(func() {
 			Param("category",String,"公告的类别")
 		})
+		Response(OK)                       // Responses define the shape and status code
 	})
 
 	Action("提醒通知", func() {
 		Description("老接口，增加5分钟的时间判断，如果不达到5分钟再次提醒，错误信息设置在resonseMsg中")
 		Routing(POST("/notice/department/v1"))
+		Response(OK)                       // Responses define the shape and status code
 	})
 
 	Action("更新日程属性",func(){
@@ -60,5 +62,23 @@ var _ = Resource("xkm", func() {
 			Param("param",String,"更改参数的属性值")
 			Param("paramType",String,"更改类型  具体说明见描述")
 		})
+		Response(OK)                       // Responses define the shape and status code
+	})
+	Action("公告筛选",func(){
+		Description("选择全部时，不能使用该接口。分类全词匹配")
+		Routing(GET("/notice/department/category/v1/{id}/{category}"))
+		Params(func() {
+			Param("id", String, "当前登录用户ID")
+			Param("category", String, "公告的分类")
+		})
+		Response(OK)                       // Responses define the shape and status code
+	})
+	Action("已发送列表  PC端使用",func(){
+		Description("已发送公告列表")
+		Routing(GET("/notice/department/v1/{id}"))
+		Params(func() {
+			Param("id", String, "当前登录用户ID")
+		})
+		Response(OK)                       // Responses define the shape and status code
 	})
 })
