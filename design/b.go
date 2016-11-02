@@ -74,7 +74,7 @@ var _ = Resource("xkm", func() {
 		Response(OK)                       // Responses define the shape and status code
 	})
 	Action("公告筛选分页",func(){
-		Description("根据分类进行筛选之后的分页")
+		Description("根据分类进行筛选之后的分页\n 获取下一页，使用原来的下一页接口")
 		Routing(GET("/notice/department/category/v1/{doctorId}/{type}/{number}/{category}"))
 		Params(func() {
 			Param("doctorId", String, "当前登录用户ID")
