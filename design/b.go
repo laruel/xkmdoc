@@ -73,6 +73,17 @@ var _ = Resource("xkm", func() {
 		})
 		Response(OK)                       // Responses define the shape and status code
 	})
+	Action("公告筛选分页",func(){
+		Description("根据分类进行筛选之后的分页")
+		Routing(GET("/notice/department/category/v1/{doctorId}/{type}/{number}/{category}"))
+		Params(func() {
+			Param("doctorId", String, "当前登录用户ID")
+			Param("type", Integer, "类型  是自己发的 还是接收的 ")
+			Param("number", Integer, "每页的条目数")
+			Param("category", String, "公告的分类")
+		})
+		Response(OK)                       // Responses define the shape and status code
+	})
 	Action("已发送列表  PC端使用",func(){
 		Description("已发送公告列表")
 		Routing(GET("/notice/department/v1/{id}"))
